@@ -2,16 +2,31 @@ import calendar
 #import numpy as np
 import socket
 import encodings
+import sqlite3
 
-HOST = '127.0.0.3'
+HOST = '127.0.0.1'
 PORT = 65432
 
 def getcal():
     yy = 2019
-    #mm = 10
+    mm = 10
     cal = calendar.calendar(yy) 
     print(cal)
     return cal
+    hadd = socket.gethostbyname(socket.gethostname())
+    print(hadd)
+    return hadd
+
+    import sqlite3
+
+db = sqlite3.connect("MyDB.db")
+cur = db.cursor()
+cur.execute("Drop table If EXISTS ADDR1")
+cur.execute("Create table ADDR1(AddrHost char(20))")
+cur.execute("Insert into ADDR1(AddrHost) values('hadd')")
+
+db.close()
+
 
 def my_server():
 	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -22,7 +37,7 @@ def my_server():
 
 	with conn:
 		while True:
-			data = conn.recv(4096).decode('utf-8')
+			data = conn.recv(1024).decode('utf-8')
 			if str(data) == "Data":
 				print("OK Sending data")
 				my_data = getcal()

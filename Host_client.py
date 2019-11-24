@@ -4,7 +4,7 @@ import threading
 import time
 
 
-HOST = '127.0.0.3'  # The server's hostname or IP address
+HOST = '127.0.0.1'  # The server's hostname or IP address
 PORT = 65432       # The port used by the server
 
 
@@ -25,7 +25,7 @@ def my_client():
 
     s.sendall(my_inp)
 
-    data = s.recv(4096).decode('utf-8')
+    data = s.recv(2048).decode('utf-8')
 
     cal= process_data_from_server(data)
 
