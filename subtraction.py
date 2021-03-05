@@ -4,7 +4,7 @@ Type "help", "copyright", "credits" or "license()" for more information.
 	sub = a-b;
 	return sub;
 
->>> a = 50
+>>> a = 500
 >>> b = 30
 >>> print("Subtraction is = ", subtraction(a,b))
 Subtraction is =  20
