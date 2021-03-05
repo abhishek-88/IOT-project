@@ -22,7 +22,7 @@ NameError: name 'c' is not defined
 	c=a+b;
 	return c;
 
->>> a=5
+>>> a=15
 >>> b=20
 >>> print("The addition is = " , addition(a,b))
 The addition is =  30
